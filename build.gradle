@@ -9,7 +9,12 @@ version '1.0-SNAPSHOT'
 applicationName = "todo"
 mainClassName = 'App'
 
-sourceCompatibility = 1.8
+// Update to Java 21
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21)) // Set Java version to 21
+    }
+}
 
 repositories {
     mavenCentral()
@@ -25,5 +30,5 @@ dependencies {
     implementation group: 'com.h2database', name: 'h2', version: '1.4.191'
 }
 
-
+// Set the task to build
 task stage(dependsOn: ['clean', 'installDist'])
